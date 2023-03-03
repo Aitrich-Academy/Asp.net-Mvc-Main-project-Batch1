@@ -1,0 +1,14 @@
+C:\Users\SHAFEEQ\Desktop\MVC\E_COMMERCE\DAL\bin\Debug\DAL.dll.config
+C:\Users\SHAFEEQ\Desktop\MVC\E_COMMERCE\DAL\bin\Debug\DAL.dll
+C:\Users\SHAFEEQ\Desktop\MVC\E_COMMERCE\DAL\bin\Debug\DAL.pdb
+C:\Users\SHAFEEQ\Desktop\MVC\E_COMMERCE\DAL\bin\Debug\EntityFramework.dll
+C:\Users\SHAFEEQ\Desktop\MVC\E_COMMERCE\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\SHAFEEQ\Desktop\MVC\E_COMMERCE\DAL\bin\Debug\EntityFramework.xml
+C:\Users\SHAFEEQ\Desktop\MVC\E_COMMERCE\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\SHAFEEQ\Desktop\MVC\E_COMMERCE\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\SHAFEEQ\Desktop\MVC\E_COMMERCE\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\SHAFEEQ\Desktop\MVC\E_COMMERCE\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\SHAFEEQ\Desktop\MVC\E_COMMERCE\DAL\obj\Debug\DAL.dll
+C:\Users\SHAFEEQ\Desktop\MVC\E_COMMERCE\DAL\obj\Debug\DAL.pdb
+C:\Users\SHAFEEQ\Desktop\MVC\E_COMMERCE\DAL\bin\Debug\System.Data.SqlClient.dll
+C:\Users\SHAFEEQ\Desktop\MVC\E_COMMERCE\DAL\bin\Debug\System.Data.SqlClient.xml

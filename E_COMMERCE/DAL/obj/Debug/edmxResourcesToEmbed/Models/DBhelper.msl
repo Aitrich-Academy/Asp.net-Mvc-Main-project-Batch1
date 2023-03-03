@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="E_COMMERCEModelStoreContainer" CdmEntityContainer="E_COMMERCEEntities">
+    <EntitySetMapping Name="CATEGORies">
+      <EntityTypeMapping TypeName="E_COMMERCEModel.CATEGORY">
+        <MappingFragment StoreEntitySet="CATEGORY">
+          <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+          <ScalarProperty Name="CAT_NAME" ColumnName="CAT_NAME" />
+          <ScalarProperty Name="CAT_DESC" ColumnName="CAT_DESC" />
+          <ScalarProperty Name="CAT_IMAGE" ColumnName="CAT_IMAGE" />
+          <ScalarProperty Name="CAT_STATUS" ColumnName="CAT_STATUS" />
+          <ScalarProperty Name="CAT_CREATEDBY" ColumnName="CAT_CREATEDBY" />
+          <ScalarProperty Name="CAT_CREATEDDATE" ColumnName="CAT_CREATEDDATE" />
+          <ScalarProperty Name="CAT_MODIBY" ColumnName="CAT_MODIBY" />
+          <ScalarProperty Name="CAT_MODIDATE" ColumnName="CAT_MODIDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDERS">
+      <EntityTypeMapping TypeName="E_COMMERCEModel.ORDER">
+        <MappingFragment StoreEntitySet="ORDERS">
+          <ScalarProperty Name="ORD_ID" ColumnName="ORD_ID" />
+          <ScalarProperty Name="ORD_USERID" ColumnName="ORD_USERID" />
+          <ScalarProperty Name="ORD_PROID" ColumnName="ORD_PROID" />
+          <ScalarProperty Name="ORD_QTY" ColumnName="ORD_QTY" />
+          <ScalarProperty Name="ORD_TOTAL" ColumnName="ORD_TOTAL" />
+          <ScalarProperty Name="ORD_STATUS" ColumnName="ORD_STATUS" />
+          <ScalarProperty Name="ORD_CREATEBY" ColumnName="ORD_CREATEBY" />
+          <ScalarProperty Name="ORD_CREATEDATE" ColumnName="ORD_CREATEDATE" />
+          <ScalarProperty Name="ORD_MODIBY" ColumnName="ORD_MODIBY" />
+          <ScalarProperty Name="ORD_MODIDATE" ColumnName="ORD_MODIDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTS">
+      <EntityTypeMapping TypeName="E_COMMERCEModel.PRODUCT">
+        <MappingFragment StoreEntitySet="PRODUCTS">
+          <ScalarProperty Name="PRO_PRICE" ColumnName="PRO_PRICE" />
+          <ScalarProperty Name="PRO_ID" ColumnName="PRO_ID" />
+          <ScalarProperty Name="PRO_NAME" ColumnName="PRO_NAME" />
+          <ScalarProperty Name="PROCAT_ID" ColumnName="PROCAT_ID" />
+          <ScalarProperty Name="PRO_DESC" ColumnName="PRO_DESC" />
+          <ScalarProperty Name="PRO_STOCK" ColumnName="PRO_STOCK" />
+          <ScalarProperty Name="PRO_IMAGE" ColumnName="PRO_IMAGE" />
+          <ScalarProperty Name="PRO_STATUS" ColumnName="PRO_STATUS" />
+          <ScalarProperty Name="PRO_CREATEBY" ColumnName="PRO_CREATEBY" />
+          <ScalarProperty Name="PRO_CREATEDATE" ColumnName="PRO_CREATEDATE" />
+          <ScalarProperty Name="PRO_MODIBY" ColumnName="PRO_MODIBY" />
+          <ScalarProperty Name="PRO_MODIDATE" ColumnName="PRO_MODIDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERs">
+      <EntityTypeMapping TypeName="E_COMMERCEModel.USER">
+        <MappingFragment StoreEntitySet="USER">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="USER_EMAIL" ColumnName="USER_EMAIL" />
+          <ScalarProperty Name="USER_PASSWORD" ColumnName="USER_PASSWORD" />
+          <ScalarProperty Name="USER_PHONE" ColumnName="USER_PHONE" />
+          <ScalarProperty Name="USER_ADDRESS" ColumnName="USER_ADDRESS" />
+          <ScalarProperty Name="USER_IMAGE" ColumnName="USER_IMAGE" />
+          <ScalarProperty Name="USER_ROLE" ColumnName="USER_ROLE" />
+          <ScalarProperty Name="USER_STATUS" ColumnName="USER_STATUS" />
+          <ScalarProperty Name="USER_CREATEBY" ColumnName="USER_CREATEBY" />
+          <ScalarProperty Name="USER_CREATEDATE" ColumnName="USER_CREATEDATE" />
+          <ScalarProperty Name="USER_MODIBY" ColumnName="USER_MODIBY" />
+          <ScalarProperty Name="USER_MODIDATE" ColumnName="USER_MODIDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

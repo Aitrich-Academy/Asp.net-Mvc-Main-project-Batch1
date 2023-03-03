@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="E_COMMERCEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CATEGORY">
+    <Key>
+      <PropertyRef Name="CAT_ID" />
+    </Key>
+    <Property Name="CAT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CAT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CAT_DESC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CAT_IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="CAT_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CAT_CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CAT_CREATEDDATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CAT_MODIBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CAT_MODIDATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_PRODUCTS_CATEGORY" FromRole="CATEGORY" ToRole="PRODUCTS" />
+  </EntityType>
+  <EntityType Name="ORDER">
+    <Key>
+      <PropertyRef Name="ORD_ID" />
+    </Key>
+    <Property Name="ORD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ORD_USERID" Type="Int32" Nullable="false" />
+    <Property Name="ORD_PROID" Type="Int32" Nullable="false" />
+    <Property Name="ORD_QTY" Type="Int32" Nullable="false" />
+    <Property Name="ORD_TOTAL" Type="Int32" Nullable="false" />
+    <Property Name="ORD_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ORD_CREATEBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ORD_CREATEDATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ORD_MODIBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ORD_MODIDATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="PRODUCT" Relationship="Self.FK_ORDERS_PRODUCTS" FromRole="ORDERS" ToRole="PRODUCTS" />
+    <NavigationProperty Name="USER" Relationship="Self.FK_ORDERS_USER" FromRole="ORDERS" ToRole="USER" />
+  </EntityType>
+  <EntityType Name="PRODUCT">
+    <Key>
+      <PropertyRef Name="PRO_ID" />
+    </Key>
+    <Property Name="PRO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PRO_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PROCAT_ID" Type="Int32" Nullable="false" />
+    <Property Name="PRO_DESC" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRO_STOCK" Type="Int32" Nullable="false" />
+    <Property Name="PRO_IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="PRO_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRO_CREATEBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRO_CREATEDATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRO_MODIBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRO_MODIDATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CATEGORY" Relationship="Self.FK_PRODUCTS_CATEGORY" FromRole="PRODUCTS" ToRole="CATEGORY" />
+    <NavigationProperty Name="ORDERS" Relationship="Self.FK_ORDERS_PRODUCTS" FromRole="PRODUCTS" ToRole="ORDERS" />
+    <Property Name="PRO_PRICE" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="USER_ROLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_CREATEBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_CREATEDATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_MODIBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_MODIDATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ORDERS" Relationship="Self.FK_ORDERS_USER" FromRole="USER" ToRole="ORDERS" />
+  </EntityType>
+  <Association Name="FK_PRODUCTS_CATEGORY">
+    <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="1" />
+    <End Role="PRODUCTS" Type="Self.PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORY">
+        <PropertyRef Name="CAT_ID" />
+      </Principal>
+      <Dependent Role="PRODUCTS">
+        <PropertyRef Name="PROCAT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDERS_PRODUCTS">
+    <End Role="PRODUCTS" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="ORDERS" Type="Self.ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTS">
+        <PropertyRef Name="PRO_ID" />
+      </Principal>
+      <Dependent Role="ORDERS">
+        <PropertyRef Name="ORD_PROID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDERS_USER">
+    <End Role="USER" Type="Self.USER" Multiplicity="1" />
+    <End Role="ORDERS" Type="Self.ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="USER_ID" />
+      </Principal>
+      <Dependent Role="ORDERS">
+        <PropertyRef Name="ORD_USERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="E_COMMERCEEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CATEGORies" EntityType="Self.CATEGORY" />
+    <EntitySet Name="ORDERS" EntityType="Self.ORDER" />
+    <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCT" />
+    <EntitySet Name="USERs" EntityType="Self.USER" />
+    <AssociationSet Name="FK_PRODUCTS_CATEGORY" Association="Self.FK_PRODUCTS_CATEGORY">
+      <End Role="CATEGORY" EntitySet="CATEGORies" />
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDERS_PRODUCTS" Association="Self.FK_ORDERS_PRODUCTS">
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+      <End Role="ORDERS" EntitySet="ORDERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDERS_USER" Association="Self.FK_ORDERS_USER">
+      <End Role="USER" EntitySet="USERs" />
+      <End Role="ORDERS" EntitySet="ORDERS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
