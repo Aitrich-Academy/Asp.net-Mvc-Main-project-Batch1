@@ -7,6 +7,7 @@ namespace ECOMMERSE.Models
 {
     public class Ent_Order
     {
+
         public int userid { get; set; }
         public int productid { get; set; }
         public int quantity { get; set; }
