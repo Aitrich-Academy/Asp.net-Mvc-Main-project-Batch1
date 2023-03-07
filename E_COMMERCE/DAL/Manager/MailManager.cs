@@ -13,7 +13,7 @@ namespace DAL.Manager
     public class MailManager
     {
 
-        public string SendEmailId(Ent_Mails mld)
+        public string SendMailToUser(Ent_Mails mld)
         {
             SmtpSection smtpSection = ConfigurationManager.GetSection("system.net/mailSettings/smtp") as SmtpSection;
 
@@ -42,7 +42,7 @@ namespace DAL.Manager
 
 
 
-        public string AdminSendMail(Ent_Mails mld)
+        public string SendEmailToAdmin(Ent_Mails mld)
         {
             SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
 

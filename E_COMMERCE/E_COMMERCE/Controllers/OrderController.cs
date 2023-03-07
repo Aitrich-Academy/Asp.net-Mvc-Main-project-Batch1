@@ -77,7 +77,7 @@ namespace ECOMMERSE.Controllers
 
                 mil.Subject = "Order Details";
 
-                string result = mailManager.SendEmailId(mil);
+                string result = mailManager.SendEmailToAdmin(mil);
                 return Request.CreateResponse(HttpStatusCode.OK, result);
             }
             catch (Exception ex)
@@ -115,7 +115,7 @@ namespace ECOMMERSE.Controllers
                     mgr.UpdateStatus(obj);
                 }
 
-                string result = mailManager.AdminSendMail(mil);
+                string result = mailManager.SendMailToUser(mil);
                 return Request.CreateResponse(HttpStatusCode.OK, result);
             }
             catch (Exception ex)
