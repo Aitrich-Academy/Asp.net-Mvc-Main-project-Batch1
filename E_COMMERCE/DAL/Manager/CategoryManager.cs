@@ -20,6 +20,8 @@ namespace DAL.Manager
                 Obj.CAT_STATUS = "A";
                 Obj.CAT_CREATEDBY = "MVC";
                 Obj.CAT_MODIBY = "MVC";
+                Obj.CAT_CREATEDDATE = DateTime.Now.ToString();
+                Obj.CAT_MODIDATE = DateTime.Now.ToString();
                 dB_obj.CATEGORies.Add(Obj);
                 result = dB_obj.SaveChanges();
             }         
