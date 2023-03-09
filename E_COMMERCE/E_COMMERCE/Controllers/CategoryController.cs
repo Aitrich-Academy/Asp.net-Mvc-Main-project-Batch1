@@ -1,12 +1,15 @@
 ﻿using DAL.Manager;
 using DAL.Models;
 using E_COMMERCE.Models;
+using ECOMMERSE.Models;
+using ECOMMERSE.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Http;
 
@@ -20,20 +23,26 @@ namespace E_COMMERCE.Controllers
         [System.Web.Http.HttpGet]
         [Route("catRegistration")]
         [HttpPost]
-        public string catRegistration(Ent_Category obj)
+        public HttpResponseMessage catRegistration(Ent_Category obj)
         {
-            CategoryManager mng = new CategoryManager();
-            Ent_Category objEnt = obj;
-            CATEGORY Reg = new CATEGORY();
-            Reg.CAT_NAME = objEnt.name;
-            Reg.CAT_DESC = objEnt.description;
-            Reg.CAT_IMAGE = objEnt.image;
-            Reg.CAT_STATUS = objEnt.status;
-            Reg.CAT_CREATEDBY = objEnt.createdBy;
-            Reg.CAT_CREATEDDATE = objEnt.createdDate;
-            Reg.CAT_MODIBY = objEnt.lastmodifiedBy;
-            Reg.CAT_MODIDATE = objEnt.lastModifiedDate;          
-            return mng.catRegistration(Reg);
+            AuthenticationHeaderValue authorization = Request.Headers.Authorization;
+            Ent_User usersDTO = TokenManager.ValidateToken(authorization.Parameter);
+            if (usersDTO.Id != null && usersDTO.role=="Admin")
+            {
+                CategoryManager mng = new CategoryManager();
+                Ent_Category objEnt = obj;
+                CATEGORY Reg = new CATEGORY();
+                Reg.CAT_NAME = objEnt.name;
+                Reg.CAT_DESC = objEnt.description;
+                Reg.CAT_IMAGE = objEnt.image;
+                Reg.CAT_STATUS = objEnt.status;
+                Reg.CAT_CREATEDBY = objEnt.createdBy;
+                Reg.CAT_CREATEDDATE = objEnt.createdDate;
+                Reg.CAT_MODIBY = objEnt.lastmodifiedBy;
+                Reg.CAT_MODIDATE = objEnt.lastModifiedDate;
+                return Request.CreateResponse(HttpStatusCode.OK, mng.catRegistration(Reg));
+            }
+            return Request.CreateResponse(HttpStatusCode.Unauthorized, "");
         }
         [System.Web.Http.AcceptVerbs("GET", "POST")]
         [System.Web.Http.HttpGet]
@@ -66,33 +75,45 @@ namespace E_COMMERCE.Controllers
         }
         public HttpResponseMessage Delete(int id)
         {
-            CategoryManager mngr = new CategoryManager();
-            mngr.catDelete(id);
-            return Request.CreateResponse(HttpStatusCode.OK, "Category Deleted Successfully");
+            AuthenticationHeaderValue authorization = Request.Headers.Authorization;
+            Ent_User usersDTO = TokenManager.ValidateToken(authorization.Parameter);
+            if (usersDTO.Id != null && usersDTO.role == "Admin")
+            {
+                CategoryManager mngr = new CategoryManager();
+                mngr.catDelete(id);
+                return Request.CreateResponse(HttpStatusCode.OK, "Category Deleted Successfully");
+            }
+            return Request.CreateResponse(HttpStatusCode.Unauthorized, "");
         }
         public HttpResponseMessage Put(int id,Ent_Category obj)
         {
-            Ent_Category ent = obj;
-            CategoryManager mngr = new CategoryManager();
-            CATEGORY cat = new CATEGORY();
-            cat.CAT_ID = id;
-            cat.CAT_NAME = ent.name;
-            cat.CAT_DESC = ent.description;
-            cat.CAT_IMAGE = ent.image;
-            cat.CAT_STATUS = ent.status;
-            cat.CAT_CREATEDBY = ent.createdBy;
-            cat.CAT_CREATEDDATE = ent.createdDate;
-            cat.CAT_MODIBY = ent.lastmodifiedBy;
-            cat.CAT_MODIDATE = ent.lastModifiedDate;
-            mngr.catUpdate(cat);
-            try
+            AuthenticationHeaderValue authorization = Request.Headers.Authorization;
+            Ent_User usersDTO = TokenManager.ValidateToken(authorization.Parameter);
+            if (usersDTO.Id != null && usersDTO.role == "Admin")
             {
-                return Request.CreateResponse(HttpStatusCode.OK, "Updated Successfully");
+                Ent_Category ent = obj;
+                CategoryManager mngr = new CategoryManager();
+                CATEGORY cat = new CATEGORY();
+                cat.CAT_ID = id;
+                cat.CAT_NAME = ent.name;
+                cat.CAT_DESC = ent.description;
+                cat.CAT_IMAGE = ent.image;
+                cat.CAT_STATUS = ent.status;
+                cat.CAT_CREATEDBY = ent.createdBy;
+                cat.CAT_CREATEDDATE = ent.createdDate;
+                cat.CAT_MODIBY = ent.lastmodifiedBy;
+                cat.CAT_MODIDATE = ent.lastModifiedDate;
+                mngr.catUpdate(cat);
+                try
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, "Updated Successfully");
+                }
+                catch (Exception ex)
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+                }
             }
-            catch (Exception ex)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
-            }
+            return Request.CreateResponse(HttpStatusCode.Unauthorized, "");
 
         }
         [System.Web.Http.HttpPost]
